@@ -31,6 +31,7 @@ function makeGrid() {
         }else{
             $(this).css("background-color",colorYouPicked);
         }
+
     });
 
     
