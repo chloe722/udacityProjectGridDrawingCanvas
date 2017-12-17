@@ -1,10 +1,15 @@
-// Select color input
-
-// Select size input
-
-// When size is submitted by the user, call makeGrid()
 
 const table = $("#pixel_canvas");
+
+// line4 to line11 is to retrieve if it's clicked.
+var mouseDown = false;
+$("body").on("mousedown",function() { 
+    mouseDown=true;
+});
+$("body").on("mouseup",function() {
+    mouseDown=false;
+});
+
 
 function makeGrid() {
     var height = $("#input_height").val();
@@ -23,7 +28,7 @@ function makeGrid() {
         $("#pixel_canvas").append(row); 
     }   
 
-    $("#pixel_canvas td").on("click",function(){
+    $("#pixel_canvas td").on("mousedown",function(){
         var colorYouPicked = $('#colorPicker').val();
         var currentBg = rgb2hex($(this).css("background-color"));
         if (currentBg === colorYouPicked){
@@ -34,7 +39,12 @@ function makeGrid() {
 
     });
 
-    
+    $("#pixel_canvas td").mouseenter(function(){
+        var colorYouPicked = $('#colorPicker').val();
+        if (mouseDown){
+            $(this).css("background-color",colorYouPicked);
+        }
+      });
 }
 
 $("#submitBtn").on("click",function(event){
@@ -49,6 +59,7 @@ $("#restartButton").on("click",function(){
     $(".canvasContainer").hide();
 })
 
+//Convert from rgb to hex
 function rgb2hex(rgb){
  rgb = rgb.match(/^rgba?[\s+]?\([\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?/i);
  return (rgb && rgb.length === 4) ? "#" +
