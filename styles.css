@@ -1,16 +1,20 @@
 body {
     text-align: center;
-    background-color: lightgray;
+    background-color: #eeeeee;
 }
 
 h1 {
-    font-family: Monoton;
+    font-family: fantasy;
     font-size: 70px;
     margin: 0.2em;
+    color: darkmagenta;
+    
 }
 
 h2 {
     margin: 1em 0 0.25em;
+    color: gray;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 h2:first-of-type {
@@ -20,7 +24,7 @@ h2:first-of-type {
 table,
 tr,
 td {
-    border: 1px solid black;
+    border: 1px solid #782259;
 }
 
 table {
@@ -40,4 +44,9 @@ td {
 
 input[type=number] {
     width: 6em;
+}
+
+#sizePicker {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
 }
