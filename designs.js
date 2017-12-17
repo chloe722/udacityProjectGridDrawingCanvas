@@ -20,20 +20,40 @@ function makeGrid() {
                 cell.fadeIn();
             }, 30*i + 30*j);
         }
-        $("#pixel_canvas").append(row);    
+        $("#pixel_canvas").append(row); 
     }   
 
     $("#pixel_canvas td").on("click",function(){
         var colorYouPicked = $('#colorPicker').val();
-        $(this).css("background-color",colorYouPicked);
+        var currentBg = rgb2hex($(this).css("background-color"));
+        if (currentBg === colorYouPicked){
+            $(this).css("background-color","white");
+        }else{
+            $(this).css("background-color",colorYouPicked);
+        }
     });
+
     
 }
 
 $("#submitBtn").on("click",function(event){
     event.preventDefault();
     makeGrid();
+    $(".canvasContainer").show();
+    $(".header").slideToggle();
 });
 
+$("#restartButton").on("click",function(){
+    $(".header").slideToggle();
+    $(".canvasContainer").hide();
+})
+
+function rgb2hex(rgb){
+ rgb = rgb.match(/^rgba?[\s+]?\([\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?/i);
+ return (rgb && rgb.length === 4) ? "#" +
+  ("0" + parseInt(rgb[1],10).toString(16)).slice(-2) +
+  ("0" + parseInt(rgb[2],10).toString(16)).slice(-2) +
+  ("0" + parseInt(rgb[3],10).toString(16)).slice(-2) : '';
+}
 
 
