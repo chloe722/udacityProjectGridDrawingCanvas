@@ -1,5 +1,5 @@
 // Select color input
-var color = $('#colorPicker').val();
+
 // Select size input
 
 // When size is submitted by the user, call makeGrid()
@@ -21,14 +21,19 @@ function makeGrid() {
             }, 30*i + 30*j);
         }
         $("#pixel_canvas").append(row);    
-    }
+    }   
+
+    $("#pixel_canvas td").on("click",function(){
+        var colorYouPicked = $('#colorPicker').val();
+        $(this).css("background-color",colorYouPicked);
+    });
     
 }
 
 $("#submitBtn").on("click",function(event){
     event.preventDefault();
     makeGrid();
-})
+});
 
 
 
