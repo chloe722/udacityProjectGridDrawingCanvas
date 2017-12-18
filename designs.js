@@ -1,7 +1,7 @@
 
 const table = $("#pixel_canvas");
 
-// line4 to line11 is to retrieve if it's clicked.
+// line 5 to line 11 is to retrieve whether the grid has been clicked.
 var mouseDown = false;
 $("body").on("mousedown",function() { 
     mouseDown=true;
@@ -9,7 +9,6 @@ $("body").on("mousedown",function() {
 $("body").on("mouseup",function() {
     mouseDown=false;
 });
-
 
 function makeGrid() {
     var height = $("#input_height").val();
@@ -36,7 +35,6 @@ function makeGrid() {
         }else{
             $(this).css("background-color",colorYouPicked);
         }
-
     });
 
     $("#pixel_canvas td").mouseenter(function(){
@@ -47,16 +45,18 @@ function makeGrid() {
       });
 }
 
-$("#submitBtn").on("click",function(event){
+$("#createBtn").on("click",function(event){
     event.preventDefault();
     makeGrid();
     $(".canvasContainer").show();
     $(".header").slideToggle();
+    $("#footer").hide();
 });
 
 $("#restartButton").on("click",function(){
     $(".header").slideToggle();
     $(".canvasContainer").hide();
+    $("#footer").slideToggle();
 })
 
 //Convert from rgb to hex

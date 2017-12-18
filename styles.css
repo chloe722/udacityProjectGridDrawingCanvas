@@ -58,7 +58,8 @@ input[type=number] {
 #sizePicker {
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
-    color: #4d4d4f;
+    color: #17335e;
+    font-size: 150%;
 }
 
 .canvasContainer {
@@ -84,10 +85,18 @@ input[type=number] {
 
 }
 
-
-#submitBtn{
+#createBtn{
     border-radius: 2px;
     background-color: rgb(230, 239, 248);
     color: #5384cc;
     font-weight: bold;
+    font-size: 70%;
+}
+
+#footer{
+    position:absolute;
+    width:100%;
+    top:92%;
+    color:gray;
+    font-size:85%;
 }
